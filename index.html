@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource Management Final Project</title>
+    <title>Resource Management Final Project - PowerPoint Style</title>
     <style>
         * {
             margin: 0;
@@ -12,173 +12,261 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.4;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1024px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .slide {
+            width: 1024px;
+            height: 768px;
             background: white;
-            margin: 20px 0;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             page-break-after: always;
-            animation: fadeIn 0.6s ease-in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #2E86AB, #A23B72, #F18F01);
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .title-slide {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .title-slide h1 {
+            font-size: 3.5em;
+            color: #2E86AB;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .title-slide h2 {
+            font-size: 2em;
+            color: #A23B72;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 20px;
         }
 
         h1 {
-            color: #4a5568;
-            text-align: center;
-            margin-bottom: 30px;
+            color: #2E86AB;
             font-size: 2.5em;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-align: center;
         }
 
         h2 {
-            color: #2d3748;
-            border-bottom: 3px solid #667eea;
+            color: #A23B72;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            border-bottom: 3px solid #F18F01;
             padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 1.8em;
         }
 
         h3 {
-            color: #4a5568;
-            margin: 20px 0 15px 0;
-            font-size: 1.3em;
+            color: #2E86AB;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+            font-weight: 500;
+        }
+
+        .content-box {
+            background: #f8f9fa;
+            border-left: 5px solid #F18F01;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
         }
 
         .highlight-box {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border-left: 5px solid #667eea;
-            padding: 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2E86AB;
+            padding: 25px;
             margin: 20px 0;
-            border-radius: 8px;
+            border-radius: 10px;
+            text-align: center;
         }
 
         .goal-box {
-            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
-            border: 2px solid #38b2ac;
-            padding: 25px;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border: 3px solid #4caf50;
+            padding: 30px;
+            margin: 25px 0;
             border-radius: 12px;
             text-align: center;
+            font-size: 1.1em;
+            font-weight: 500;
         }
 
-        .success-item {
-            background: #f0fff4;
-            border-left: 4px solid #48bb78;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            font-size: 1.1em;
         }
 
-        .challenge-item {
-            background: #fffaf0;
-            border-left: 4px solid #ed8936;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
+        .bullet-point::before {
+            content: '▶';
+            color: #F18F01;
+            font-weight: bold;
+            margin-right: 15px;
+            margin-top: 2px;
         }
 
-        .impact-item {
-            background: #f7faff;
-            border-left: 4px solid #4299e1;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        .action-grid {
+        .two-column {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
             margin: 20px 0;
         }
 
-        .action-card {
+        .column-box {
             background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .icon-large {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .success-icon { color: #4caf50; }
+        .challenge-icon { color: #ff9800; }
+        .impact-icon { color: #2196f3; }
+
+        .quote-box {
+            background: #fff3e0;
+            border-left: 5px solid #F18F01;
+            padding: 20px;
+            margin: 15px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 2px solid #A23B72;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #A23B72;
+            display: block;
+        }
+
+        .week-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #2E86AB;
             border-radius: 10px;
             padding: 20px;
-            transition: transform 0.3s ease;
+            margin: 15px 0;
         }
 
-        .action-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .week-header {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .week-title {
+            background: #2E86AB;
             color: white;
-            text-align: center;
             padding: 10px;
-            border-radius: 8px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
             margin-bottom: 15px;
+        }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .large-text {
+            font-size: 1.3em;
+            line-height: 1.6;
+        }
+
+        .emphasis {
+            color: #A23B72;
+            font-weight: bold;
         }
 
         ul {
             margin: 15px 0;
-            padding-left: 30px;
+            padding-left: 0;
+            list-style: none;
         }
 
         li {
-            margin: 8px 0;
+            margin: 12px 0;
+            font-size: 1.1em;
         }
 
-        .interview-section {
-            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        .quote {
-            font-style: italic;
-            background: #f7fafc;
-            padding: 15px;
-            border-left: 4px solid #667eea;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .slide {
-                padding: 20px;
-                margin: 10px 0;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .action-grid {
-                grid-template-columns: 1fr;
-            }
+        li::before {
+            content: '●';
+            color: #F18F01;
+            font-weight: bold;
+            margin-right: 15px;
         }
 
         @media print {
-            body {
-                background: white;
-            }
-            
             .slide {
                 box-shadow: none;
                 border: 1px solid #ddd;
@@ -188,275 +276,571 @@
 </head>
 <body>
     <div class="container">
-        <!-- Slide 1: Title -->
-        <div class="slide">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide title-slide">
             <h1>Resource Management Project</h1>
-            <div style="text-align: center; margin-top: 40px;">
-                <h2 style="border: none; color: #667eea;">Improving Eating Habits Through Meal Planning</h2>
-                <div class="highlight-box" style="margin-top: 30px;">
-                    <p style="font-size: 1.2em; font-weight: bold;">6-Step Resource Management Process</p>
-                    <p>A 3-week journey to transform our relationship with healthy eating</p>
-                </div>
-            </div>
+            <h2>Improving Eating Habits Through Meal Planning</h2>
+            <div class="subtitle">6-Step Resource Management Process</div>
+            <div class="subtitle">A 3-week journey to transform our relationship with healthy eating</div>
+            <div class="slide-number">1</div>
         </div>
 
-        <!-- Slide 2: Value Conflict and SMART Goal -->
+        <!-- Slide 2: Project Overview -->
         <div class="slide">
-            <h2>1. Value Conflict and SMART Goal</h2>
-            
-            <h3>🎯 Identified Value Conflict</h3>
-            <div class="highlight-box">
-                <strong>Area:</strong> Physical self-care (diet, exercise, sleep)<br>
-                <strong>Importance:</strong> 8/10<br>
-                <strong>Action consistency:</strong> 7/10<br>
-                <strong>Specific focus:</strong> Improve diet and overall health together with my wife, aiming for weight loss through healthier eating habits
-            </div>
-
-            <h3>🔍 Why this conflict occurred?</h3>
-            <p>This conflict occurred primarily due to financial pressures and prioritization of other immediate expenses such as rent, education, and basic household needs. Consequently, my wife and I have tended to overlook healthier eating choices, opting instead for cheaper, more convenient options that often aren't nutritious.</p>
-
-            <h3>📊 Areas of imbalance</h3>
-            <ul>
-                <li><strong>Too little time/effort:</strong> Meal planning, cooking nutritious meals at home, regular physical activity</li>
-                <li><strong>Too much time/effort:</strong> Work, managing financial responsibilities, educational activities</li>
-            </ul>
-
-            <div class="goal-box">
-                <h3>🎯 SMART GOAL</h3>
-                <p style="font-size: 1.1em; font-weight: bold;">
-                    "For the next three weeks, my wife and I will plan meals each Sunday evening, maintain a weekly grocery budget of R$200 for nutritious foods, and record all our daily meals in a journal to ensure we consistently eat healthily and support our weight-loss goals."
-                </p>
-            </div>
-        </div>
-
-        <!-- Slide 3: Interview -->
-        <div class="slide">
-            <h2>2. Expert Interview</h2>
-            
-            <div class="interview-section">
-                <h3>👩‍⚕️ Interviewee: Maria Lopez</h3>
-                <p><strong>Relationship:</strong> Family friend and nutrition specialist</p>
-                <p><strong>Why I chose her:</strong> Maria has professional experience in nutrition and overcame similar personal challenges related to healthy eating. She is not an immediate family member, making her an ideal mentor for this project.</p>
-            </div>
-
-            <h3>💡 Key Interview Insights</h3>
-            
-            <div class="quote">
-                <strong>When healthy eating became important:</strong><br>
-                "Healthy eating became crucial to me after facing health challenges five years ago, which motivated me to pursue nutrition as a profession."
-            </div>
-
-            <div class="quote">
-                <strong>About the effort required:</strong><br>
-                "It has required significant, ongoing effort and discipline, especially in meal planning and making informed choices consistently."
-            </div>
-
-            <div class="quote">
-                <strong>Impact on life:</strong><br>
-                "My health improved dramatically, leading to greater energy and emotional stability, enabling me to cope better with stress."
-            </div>
-
-            <h3>🎯 How the interview helped my project</h3>
-            <ul>
-                <li>Confirmed that meal planning is fundamental for success</li>
-                <li>Showed that financial challenges can be overcome with creativity</li>
-                <li>Reinforced the importance of preparation and consistency</li>
-                <li>Provided practical strategies to maintain focus during difficulties</li>
-            </ul>
-        </div>
-
-        <!-- Slide 4: Plan Implementation -->
-        <div class="slide">
-            <h2>3. Plan Implementation</h2>
-            
-            <h3>📋 Plan Overview</h3>
-            <p>Our 4-week plan was structured to progressively create stronger healthy eating habits, starting with basic meal planning and evolving to advanced meal preparation with full family involvement.</p>
-
-            <div class="action-grid">
-                <div class="action-card">
-                    <div class="week-header">Week 1</div>
-                    <strong>Actions:</strong>
-                    <ul>
-                        <li>Plan meals Sundays 7-8 PM</li>
-                        <li>Grocery shopping Monday mornings, R$200 budget</li>
-                    </ul>
+            <h1>Project Overview</h1>
+            <div class="center-content">
+                <div class="highlight-box">
+                    <h3>🎯 Focus Area</h3>
+                    <p class="large-text">Physical self-care through improved diet and meal planning</p>
                 </div>
                 
-                <div class="action-card">
-                    <div class="week-header">Week 2</div>
-                    <strong>Actions:</strong>
-                    <ul>
-                        <li>Extended planning (7-8:30 PM)</li>
-                        <li>Start Sunday meal prep (1 hour)</li>
-                    </ul>
+                <div class="two-column">
+                    <div>
+                        <h3>📊 Value Conflict</h3>
+                        <div class="bullet-point">Importance: <span class="emphasis">8/10</span></div>
+                        <div class="bullet-point">Current consistency: <span class="emphasis">7/10</span></div>
+                        <div class="bullet-point">Gap to address: <span class="emphasis">Meal planning & healthy eating</span></div>
+                    </div>
+                    <div>
+                        <h3>🎯 Project Goal</h3>
+                        <div class="bullet-point">Duration: <span class="emphasis">3 weeks</span></div>
+                        <div class="bullet-point">Budget: <span class="emphasis">R$200/week</span></div>
+                        <div class="bullet-point">Method: <span class="emphasis">Sunday planning & daily tracking</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">2</div>
+        </div>
+
+        <!-- Slide 3: Value Conflict Analysis -->
+        <div class="slide">
+            <h1>Value Conflict Analysis</h1>
+            <div class="center-content">
+                <h2>🔍 Why This Conflict Occurred</h2>
+                <div class="content-box large-text">
+                    This conflict occurred primarily due to <span class="emphasis">financial pressures</span> and prioritization of other immediate expenses such as rent, education, and basic household needs.
                 </div>
                 
-                <div class="action-card">
-                    <div class="week-header">Week 3</div>
-                    <strong>Actions:</strong>
-                    <ul>
-                        <li>Extended meal prep (7-9 PM)</li>
-                        <li>Cook 3 meals together</li>
-                    </ul>
+                <div class="two-column">
+                    <div>
+                        <h3>⚠️ Too Little Time/Effort</h3>
+                        <li>Meal planning</li>
+                        <li>Cooking nutritious meals at home</li>
+                        <li>Regular physical activity</li>
+                        <li>Grocery shopping with intention</li>
+                    </div>
+                    <div>
+                        <h3>⏰ Too Much Time/Effort</h3>
+                        <li>Work responsibilities</li>
+                        <li>Managing financial obligations</li>
+                        <li>Educational activities</li>
+                        <li>Quick food solutions</li>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">3</div>
+        </div>
+
+        <!-- Slide 4: SMART Goal -->
+        <div class="slide">
+            <h1>SMART Goal Definition</h1>
+            <div class="center-content">
+                <div class="goal-box">
+                    <h3>🎯 Our SMART Goal</h3>
+                    <p class="large-text">
+                        "For the next <span class="emphasis">three weeks</span>, my wife and I will plan meals each <span class="emphasis">Sunday evening</span>, maintain a weekly grocery budget of <span class="emphasis">R$200</span> for nutritious foods, and <span class="emphasis">record all our daily meals</span> in a journal to ensure we consistently eat healthily and support our weight-loss goals."
+                    </p>
                 </div>
                 
-                <div class="action-card">
-                    <div class="week-header">Week 4</div>
-                    <strong>Actions:</strong>
-                    <ul>
-                        <li>Complete meal prep (6:30-9:30 PM)</li>
-                        <li>Evaluate progress and make adjustments</li>
-                    </ul>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">S</span>
+                        <strong>Specific</strong><br>
+                        Sunday meal planning & daily tracking
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">M</span>
+                        <strong>Measurable</strong><br>
+                        R$200 budget & daily journal entries
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">A</span>
+                        <strong>Achievable</strong><br>
+                        Realistic budget and time commitment
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">R</span>
+                        <strong>Relevant</strong><br>
+                        Directly addresses value conflict
+                    </div>
                 </div>
             </div>
-
-            <h3>🤔 Why we chose these actions</h3>
-            <ul>
-                <li><strong>Gradual progression:</strong> Started with smaller commitments and gradually increased</li>
-                <li><strong>Fixed budget:</strong> R$200 weekly ensures financial control</li>
-                <li><strong>Shared responsibility:</strong> Both actively participate</li>
-                <li><strong>Documentation:</strong> Food journal ensures accountability</li>
-                <li><strong>Flexibility:</strong> Plan allows adjustments as we learn</li>
-            </ul>
+            <div class="slide-number">4</div>
         </div>
 
-        <!-- Slide 5: Successes and Challenges -->
+        <!-- Slide 5: Interview Introduction -->
         <div class="slide">
-            <h2>4. Successes and Challenges</h2>
-            
-            <h3>🎉 Achieved Successes</h3>
-            
-            <div class="success-item">
-                <strong>Establishing Consistent Routine</strong><br>
-                We managed to maintain Sunday planning for all 3 weeks, creating a solid habit that became natural in our family routine.
+            <h1>Expert Interview</h1>
+            <div class="center-content">
+                <div class="highlight-box">
+                    <h3>👩‍⚕️ Maria Lopez</h3>
+                    <p class="large-text">Family friend and nutrition specialist</p>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>🤔 Why I Chose Maria</h3>
+                        <div class="bullet-point">Professional nutrition experience</div>
+                        <div class="bullet-point">Overcame similar personal challenges</div>
+                        <div class="bullet-point">Not immediate family member</div>
+                        <div class="bullet-point">Ideal mentor for this project</div>
+                    </div>
+                    <div>
+                        <h3>🎯 Interview Purpose</h3>
+                        <div class="bullet-point">Learn from her experience</div>
+                        <div class="bullet-point">Understand challenges she faced</div>
+                        <div class="bullet-point">Get practical advice</div>
+                        <div class="bullet-point">Gain motivation and strategies</div>
+                    </div>
+                </div>
             </div>
-
-            <div class="success-item">
-                <strong>Improvement in Food Quality</strong><br>
-                We noticed significant increase in consumption of vegetables, fruits, and lean proteins, drastically reducing fast food consumption.
-            </div>
-
-            <div class="success-item">
-                <strong>Effective Financial Management</strong><br>
-                We maintained the R$200 weekly budget for all weeks, proving that healthy eating can be affordable with proper planning.
-            </div>
-
-            <h3>⚠️ Main Challenges</h3>
-            
-            <div class="challenge-item">
-                <strong>Main Challenge: Fast Food Temptation During Stressful Periods</strong><br>
-                During the second week, we faced work and study pressure, which tempted us to buy fast food for convenience.
-            </div>
-
-            <h3>💡 How We Overcame the Challenge</h3>
-            <ul>
-                <li><strong>Advanced preparation:</strong> Cooked easy-to-heat emergency meals</li>
-                <li><strong>Healthy snacks:</strong> Always kept fruits and nuts available</li>
-                <li><strong>Communication:</strong> Created mutual reminder system when one felt tempted</li>
-                <li><strong>Controlled flexibility:</strong> Established that in emergencies, we'd choose the healthiest available option</li>
-                <li><strong>Visual motivation:</strong> Put photos of our health goals on the refrigerator</li>
-            </ul>
+            <div class="slide-number">5</div>
         </div>
 
-        <!-- Slide 6: Project Evaluation -->
+        <!-- Slide 6: Interview Key Insights -->
         <div class="slide">
-            <h2>5. Project Evaluation</h2>
-            
-            <h3>🔄 What I Would Do Differently</h3>
-            
-            <div class="highlight-box">
-                <h4>1. More Detailed Meal Planning</h4>
-                <p><strong>Specific change:</strong> Would include more detailed nutritional planning with calorie and macronutrient calculations from the beginning, not just in the third week.</p>
+            <h1>Interview Key Insights</h1>
+            <div class="center-content">
+                <div class="quote-box">
+                    <strong>When healthy eating became important:</strong><br>
+                    "Healthy eating became crucial to me after facing health challenges five years ago, which motivated me to pursue nutrition as a profession."
+                </div>
+                
+                <div class="quote-box">
+                    <strong>About the effort required:</strong><br>
+                    "It has required significant, ongoing effort and discipline, especially in meal planning and making informed choices consistently."
+                </div>
+                
+                <div class="quote-box">
+                    <strong>Impact on life:</strong><br>
+                    "My health improved dramatically, leading to greater energy and emotional stability, enabling me to cope better with stress."
+                </div>
             </div>
-
-            <div class="highlight-box">
-                <h4>2. Emergency Situation Preparation</h4>
-                <p><strong>Specific change:</strong> Would create from the first week a list of 10 quick and healthy meal options that could be prepared in less than 15 minutes.</p>
-            </div>
-
-            <div class="highlight-box">
-                <h4>3. External Support Involvement</h4>
-                <p><strong>Specific change:</strong> Would include bi-weekly meetings with Maria (our mentor) to receive continuous feedback and plan adjustments, instead of just one initial interview.</p>
-            </div>
-
-            <div class="highlight-box">
-                <h4>4. Reward System</h4>
-                <p><strong>Specific change:</strong> Would establish small non-food rewards for each successfully completed week (like a special movie or a walk together).</p>
-            </div>
-
-            <div class="highlight-box">
-                <h4>5. Richer Documentation</h4>
-                <p><strong>Specific change:</strong> Besides the food journal, would include photos of meals and notes about how we felt after each meal, creating a more complete record.</p>
-            </div>
+            <div class="slide-number">6</div>
         </div>
 
-        <!-- Slide 7: Project Impact -->
+        <!-- Slide 7: How Interview Helped -->
         <div class="slide">
-            <h2>6. Project Impact</h2>
-            
-            <h3>✨ Specific Positive Impacts</h3>
-            
-            <div class="impact-item">
-                <strong>Improvement in Energy and Mood</strong><br>
-                Both of us reported significant increase in energy levels, especially in the morning. We can wake up more easily and feel more alert throughout the day.
+            <h1>How the Interview Helped</h1>
+            <div class="center-content">
+                <h2>🎯 Key Learnings Applied to Our Project</h2>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>💡 Strategic Insights</h3>
+                        <div class="bullet-point">Confirmed meal planning is fundamental</div>
+                        <div class="bullet-point">Financial challenges can be overcome</div>
+                        <div class="bullet-point">Preparation and consistency are key</div>
+                    </div>
+                    <div>
+                        <h3>🛠️ Practical Applications</h3>
+                        <div class="bullet-point">Strategies for maintaining focus</div>
+                        <div class="bullet-point">Creative solutions for tight budgets</div>
+                        <div class="bullet-point">Importance of gradual progression</div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <strong>Maria's Key Recommendation:</strong> "Prioritize meal planning and cooking at home, avoid impulsive fast food purchases, and remember that preparation is the key to success."
+                </div>
             </div>
-
-            <div class="impact-item">
-                <strong>Strengthening Our Relationship</strong><br>
-                The project created a new dynamic of cooperation in our marriage. Cooking together became a moment of connection and important conversations about our future goals.
-            </div>
-
-            <div class="impact-item">
-                <strong>Development of Culinary Skills</strong><br>
-                We learned to prepare 15 new healthy recipes and developed confidence in the kitchen. Now we can improvise nutritious meals with basic ingredients.
-            </div>
-
-            <div class="impact-item">
-                <strong>Improvement in Financial Management</strong><br>
-                Rigorous planning taught us to be more conscious about spending in general. We applied budgeting and planning principles to other areas of our finances.
-            </div>
-
-            <div class="impact-item">
-                <strong>Increased Self-Confidence</strong><br>
-                Successfully completing this 3-week project gave us confidence that we can achieve other challenging goals. We feel we have more control over our life choices.
-            </div>
-
-            <div class="impact-item">
-                <strong>Creation of Lasting Habits</strong><br>
-                Even after the official end of the project, we naturally continue with Sunday planning and weekly budgeting. The habits became an integrated part of our routine.
-            </div>
-
-            <h3>📈 Measurable Results</h3>
-            <ul>
-                <li>100% adherence to weekly R$200 budget</li>
-                <li>80% reduction in fast food consumption</li>
-                <li>200% increase in fresh vegetable consumption</li>
-                <li>21 consecutive days of complete food logging</li>
-                <li>Combined weight loss of 3.5kg between the couple</li>
-            </ul>
+            <div class="slide-number">7</div>
         </div>
 
-        <!-- Slide 8: Final Reflection -->
+        <!-- Slide 8: Plan Overview -->
         <div class="slide">
-            <h2>Final Reflection</h2>
-            
-            <div class="goal-box">
-                <h3>🌟 Main Learnings</h3>
-                <p>This project demonstrated that significant life changes can be achieved through structured planning, mutual commitment, and gradual progression. The resource management process taught us that our values must be reflected in our daily actions.</p>
+            <h1>Implementation Plan Overview</h1>
+            <div class="center-content">
+                <div class="highlight-box">
+                    <h3>📋 4-Week Progressive Strategy</h3>
+                    <p class="large-text">Structured to progressively create stronger healthy eating habits, starting with basic meal planning and evolving to advanced meal preparation with full family involvement.</p>
+                </div>
+                
+                <div class="three-column">
+                    <div class="column-box">
+                        <span class="icon-large">📅</span>
+                        <h4>Planning Phase</h4>
+                        <p>Sunday evening meal planning sessions</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large">🛒</span>
+                        <h4>Shopping Phase</h4>
+                        <p>Monday morning grocery trips with R$200 budget</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large">📝</span>
+                        <h4>Tracking Phase</h4>
+                        <p>Daily meal recording and progress monitoring</p>
+                    </div>
+                </div>
             </div>
+            <div class="slide-number">8</div>
+        </div>
 
-            <h3>🚀 Next Steps</h3>
-            <ul>
-                <li>Continue and refine the meal planning system</li>
-                <li>Apply the resource management process to other areas (exercise, studies)</li>
-                <li>Share our experience with other families</li>
-                <li>Set new health goals for the next 6 months</li>
-            </ul>
-
-            <div class="highlight-box" style="text-align: center; margin-top: 30px;">
-                <h3>💝 Gratitude</h3>
-                <p>We are grateful for the opportunity to learn and apply resource management principles in a practical way. This project not only improved our health but strengthened our marriage and gave us valuable tools for future changes in our life.</p>
+        <!-- Slide 9: Weekly Implementation Details -->
+        <div class="slide">
+            <h1>Weekly Implementation Details</h1>
+            <div class="center-content">
+                <div class="two-column">
+                    <div>
+                        <div class="week-box">
+                            <div class="week-title">Week 1: Foundation</div>
+                            <li>Plan meals Sundays 7-8 PM</li>
+                            <li>Shop Monday mornings, R$200 budget</li>
+                            <li>Start daily meal tracking</li>
+                        </div>
+                        
+                        <div class="week-box">
+                            <div class="week-title">Week 3: Integration</div>
+                            <li>Extended meal prep (7-9 PM)</li>
+                            <li>Cook 3 meals together</li>
+                            <li>Refine grocery lists</li>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="week-box">
+                            <div class="week-title">Week 2: Expansion</div>
+                            <li>Extended planning (7-8:30 PM)</li>
+                            <li>Start Sunday meal prep (1 hour)</li>
+                            <li>Involve both partners equally</li>
+                        </div>
+                        
+                        <div class="week-box">
+                            <div class="week-title">Week 4: Mastery</div>
+                            <li>Complete meal prep (6:30-9:30 PM)</li>
+                            <li>Evaluate progress and adjust</li>
+                            <li>Plan for long-term sustainability</li>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="slide-number">9</div>
+        </div>
+
+        <!-- Slide 10: Why These Actions -->
+        <div class="slide">
+            <h1>Strategic Action Selection</h1>
+            <div class="center-content">
+                <h2>🤔 Why We Chose These Specific Actions</h2>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>📈 Progressive Development</h3>
+                        <div class="bullet-point"><strong>Gradual progression:</strong> Started with smaller commitments and gradually increased</div>
+                        <div class="bullet-point"><strong>Skill building:</strong> Each week built upon previous week's learning</div>
+                        <div class="bullet-point"><strong>Sustainable growth:</strong> Avoided overwhelming ourselves</div>
+                    </div>
+                    <div>
+                        <h3>🎯 Strategic Elements</h3>
+                        <div class="bullet-point"><strong>Fixed budget:</strong> R$200 weekly ensures financial control</div>
+                        <div class="bullet-point"><strong>Shared responsibility:</strong> Both partners actively participate</div>
+                        <div class="bullet-point"><strong>Accountability:</strong> Daily tracking ensures consistency</div>
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <strong>Key Principle:</strong> Flexibility within structure - our plan allowed adjustments as we learned what worked best for our family while maintaining core commitments.
+                </div>
+            </div>
+            <div class="slide-number">10</div>
+        </div>
+
+        <!-- Slide 11: Successes Achieved -->
+        <div class="slide">
+            <h1>Successes Achieved</h1>
+            <div class="center-content">
+                <div class="three-column">
+                    <div class="column-box">
+                        <span class="icon-large success-icon">✅</span>
+                        <h4>Consistent Routine</h4>
+                        <p>Maintained Sunday planning for all 3 weeks, creating a solid habit</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large success-icon">🥗</span>
+                        <h4>Food Quality</h4>
+                        <p>Significant increase in vegetables, fruits, and lean proteins consumption</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large success-icon">💰</span>
+                        <h4>Budget Management</h4>
+                        <p>Maintained R$200 weekly budget proving healthy eating is affordable</p>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        Budget adherence rate
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">21</span>
+                        Consecutive tracking days
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">80%</span>
+                        Reduction in fast food
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">15</span>
+                        New healthy recipes learned
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">11</div>
+        </div>
+
+        <!-- Slide 12: Main Challenge -->
+        <div class="slide">
+            <h1>Main Challenge Faced</h1>
+            <div class="center-content">
+                <div class="content-box">
+                    <span class="icon-large challenge-icon">⚠️</span>
+                    <h2>Fast Food Temptation During Stressful Periods</h2>
+                    <p class="large-text">During the second week, we faced work and study pressure, which tempted us to buy fast food for convenience instead of following our meal plan.</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>🧠 Why This Was Our Biggest Challenge</h3>
+                    <div class="bullet-point">Stress reduces willpower and decision-making capacity</div>
+                    <div class="bullet-point">Fast food provides immediate convenience during busy times</div>
+                    <div class="bullet-point">Old habits resurface under pressure</div>
+                    <div class="bullet-point">Time constraints made meal prep seem impossible</div>
+                </div>
+            </div>
+            <div class="slide-number">12</div>
+        </div>
+
+        <!-- Slide 13: Overcoming Challenges -->
+        <div class="slide">
+            <h1>How We Overcame the Challenge</h1>
+            <div class="center-content">
+                <h2>💡 Five-Strategy Solution</h2>
+                
+                <div class="two-column">
+                    <div>
+                        <div class="content-box">
+                            <strong>1. Advanced Preparation</strong><br>
+                            Cooked easy-to-heat emergency meals in advance
+                        </div>
+                        
+                        <div class="content-box">
+                            <strong>2. Healthy Snack Strategy</strong><br>
+                            Always kept fruits and nuts readily available
+                        </div>
+                        
+                        <div class="content-box">
+                            <strong>3. Communication System</strong><br>
+                            Created mutual reminder system when one felt tempted
+                        </div>
+                    </div>
+                    <div>
+                        <div class="content-box">
+                            <strong>4. Controlled Flexibility</strong><br>
+                            In emergencies, choose the healthiest available option
+                        </div>
+                        
+                        <div class="content-box">
+                            <strong>5. Visual Motivation</strong><br>
+                            Put photos of our health goals on the refrigerator
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>Result:</strong> Successfully navigated stress without abandoning our plan
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">13</div>
+        </div>
+
+        <!-- Slide 14: What Would I Do Differently - Part 1 -->
+        <div class="slide">
+            <h1>Project Evaluation: What I'd Change (1/2)</h1>
+            <div class="center-content">
+                <div class="content-box">
+                    <h3>1. More Detailed Nutritional Planning</h3>
+                    <strong>Specific change:</strong> Include detailed nutritional planning with calorie and macronutrient calculations from the beginning, not just in the third week.
+                </div>
+                
+                <div class="content-box">
+                    <h3>2. Emergency Situation Preparation</h3>
+                    <strong>Specific change:</strong> Create from week one a list of 10 quick and healthy meal options that could be prepared in less than 15 minutes.
+                </div>
+                
+                <div class="content-box">
+                    <h3>3. Enhanced External Support</h3>
+                    <strong>Specific change:</strong> Include bi-weekly meetings with Maria (our mentor) for continuous feedback and plan adjustments, instead of just one initial interview.
+                </div>
+            </div>
+            <div class="slide-number">14</div>
+        </div>
+
+        <!-- Slide 15: What Would I Do Differently - Part 2 -->
+        <div class="slide">
+            <h1>Project Evaluation: What I'd Change (2/2)</h1>
+            <div class="center-content">
+                <div class="content-box">
+                    <h3>4. Implement Reward System</h3>
+                    <strong>Specific change:</strong> Establish small non-food rewards for each successfully completed week (like a special movie or a walk together).
+                </div>
+                
+                <div class="content-box">
+                    <h3>5. Richer Documentation Process</h3>
+                    <strong>Specific change:</strong> Besides the food journal, include photos of meals and notes about how we felt after each meal, creating a more complete record.
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>🎯 Overall Improvement Strategy</h3>
+                    <p class="large-text">These changes would create a more comprehensive, supportive, and sustainable approach to healthy eating transformation.</p>
+                </div>
+            </div>
+            <div class="slide-number">15</div>
+        </div>
+
+        <!-- Slide 16: Project Impact - Personal -->
+        <div class="slide">
+            <h1>Project Impact: Personal Benefits</h1>
+            <div class="center-content">
+                <div class="three-column">
+                    <div class="column-box">
+                        <span class="icon-large impact-icon">⚡</span>
+                        <h4>Energy & Mood</h4>
+                        <p>Significant increase in energy levels, especially mornings. Wake up more easily and feel alert all day.</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large impact-icon">❤️</span>
+                        <h4>Relationship</h4>
+                        <p>Cooking together became moments of connection and important conversations about future goals.</p>
+                    </div>
+                    <div class="column-box">
+                        <span class="icon-large impact-icon">👨‍🍳</span>
+                        <h4>Culinary Skills</h4>
+                        <p>Learned 15 new healthy recipes and developed confidence to improvise nutritious meals.</p>
+                    </div>
+                </div>
+                
+                <div class="two-column">
+                    <div class="content-box">
+                        <strong>Self-Confidence Boost</strong><br>
+                        Successfully completing this 3-week project gave us confidence that we can achieve other challenging goals.
+                    </div>
+                    <div class="content-box">
+                        <strong>Habit Formation</strong><br>
+                        Even after project completion, we naturally continue with Sunday planning and weekly budgeting.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">16</div>
+        </div>
+
+        <!-- Slide 17: Project Impact - Measurable Results -->
+        <div class="slide">
+            <h1>Project Impact: Measurable Results</h1>
+            <div class="center-content">
+                <h2>📈 Quantified Success Metrics</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        Adherence to weekly R$200 budget
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">80%</span>
+                        Reduction in fast food consumption
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">200%</span>
+                        Increase in fresh vegetable consumption
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">3.5kg</span>
+                        Combined weight loss between couple
+                    </div>
+                </div>
+                
+                <div class="content-box">
+                    <h3>💰 Financial Management Impact</h3>
+                    <p class="large-text">Rigorous planning taught us to be more conscious about spending in general. We applied budgeting and planning principles to other areas of our finances.</p>
+                </div>
+            </div>
+            <div class="slide-number">17</div>
+        </div>
+
+        <!-- Slide 18: Final Reflection -->
+        <div class="slide">
+            <h1>Final Reflection</h1>
+            <div class="center-content">
+                <div class="goal-box">
+                    <h3>🌟 Main Learnings</h3>
+                    <p class="large-text">This project demonstrated that significant life changes can be achieved through structured planning, mutual commitment, and gradual progression. The resource management process taught us that our values must be reflected in our daily actions.</p>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>🚀 Next Steps</h3>
+                        <div class="bullet-point">Continue and refine meal planning system</div>
+                        <div class="bullet-point">Apply resource management to exercise</div>
+                        <div class="bullet-point">Share experience with other families</div>
+                        <div class="bullet-point">Set new 6-month health goals</div>
+                    </div>
+                    <div>
+                        <h3>🎯 Key Success Factors</h3>
+                        <div class="bullet-point">Structured weekly planning</div>
+                        <div class="bullet-point">Clear budget boundaries</div>
+                        <div class="bullet-point">Daily accountability tracking</div>
+                        <div class="bullet-point">Mutual support and commitment</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-number">18</div>
+        </div>
+
+        <!-- Slide 19: Gratitude and Conclusion -->
+        <div class="slide">
+            <h1>Gratitude & Conclusion</h1>
+            <div class="center-content">
+                <div class="highlight-box">
+                    <h3>💝 Our Gratitude</h3>
+                    <p class="large-text">We are grateful for the opportunity to learn and apply resource management principles in a practical way. This project not only improved our health but strengthened our marriage and gave us valuable tools for future changes in our life.</p>
+                </div>
+                
+                <div class="content-box">
+                    <h3>📚 Resource Management Process Mastery</h3>
+                    <div class="bullet-point"><strong>Step 1:</strong> Successfully identified value conflict</div>
+                    <div class="bullet-point"><strong>Step 2:</strong> Clarified family values and priorities</div>
+                    <div class="bullet-point"><strong>Step 3:</strong> Identified and utilized available resources</div>
+                    <div class="bullet-point"><strong>Step 4:</strong> Decided, planned, and implemented effectively</div>
+                    <div class="bullet-point"><strong>Step 5:</strong> Accomplished goals and evaluated progress</div>
+                    <div class="bullet-point"><strong>Step 6:</strong> Gathered feedback for continuous improvement</div>
+                </div>
+                
+                <div class="goal-box">
+                    <strong>This project transformed not just our eating habits, but our entire approach to setting and achieving meaningful goals as a family.</strong>
+                </div>
+            </div>
+            <div class="slide-number">19</div>
+        </div>
+
+        <!-- Slide 20: Thank You -->
+        <div class="slide title-slide">
+            <h1>Thank You</h1>
+            <h2>Questions & Discussion</h2>
+            <div class="subtitle">Resource Management Final Project</div>
+            <div class="subtitle">Improving Eating Habits Through Meal Planning</div>
+            <div class="highlight-box" style="margin-top: 50px;">
+                <p class="large-text">Ready to apply the 6-step Resource Management Process to transform your own value conflicts into successful outcomes</p>
+            </div>
+            <div class="slide-number">20</div>
         </div>
     </div>
 </body>
